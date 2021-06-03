@@ -1,0 +1,9 @@
+git commit -m "mensaje"
+git push origin master
+git branch rama
+git checkout rama
+git merge master
+
+git log --all --decorate --oneline --graph
+git subtree push --prefix back-end heroku master
+git push git@gitlab.com:Nagamine_/sistema-seguimiento-pacientes.git heroku

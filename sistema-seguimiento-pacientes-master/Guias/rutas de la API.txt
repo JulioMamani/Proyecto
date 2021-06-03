@@ -1,0 +1,32 @@
+GET: /api/v1/checklogged/ 
+-verifica si esta logueado
+-devuelve: codigo de error si no logeado, codigo 200 si logeado
+
+POST: /api/v1/login/
+-aqui se realiza el logueo
+-recibe: un JSON con el user y password
+
+Todas las rutas con el /protected requieren logeo
+
+POST: /api/v1/login/protected/medico/paciente/
+-añade el paciente
+-recibe: un JSON con los datos del paciente
+-devuelve en exito:  codigo 201 y  JSON con los datos del paciente creado
+-devuelve en fallo: codigo 422 y mensaje de "entidad no creada"
+
+GET: /api/v1/login/protected/medico/paciente/:id/
+ejemplo   /api/v1/login/protected/medico/paciente/12345/
+-devuelve el paciente con el id, si no existe devuelve 404 con el mensaje no encontrado
+
+GET: /api/v1/login/protected/medico/paciente/:id/diagnostico/
+ejemplo   /api/v1/login/protected/medico/paciente/12345/diagnostico/
+-devuelve todos los diagnosticos del paciente con el id, si no existe devuelve 404 con el mensaje no encontrado
+
+GET: /api/v1/login/protected/medico/paciente/:id/diagnostico/:ndiagnostico
+ejemplo   /api/v1/login/protected/medico/paciente/12345/diagnostico/123456
+-devuelve el diagnostico del paciente :id con el :nDiagnostico
+
+POST:  /api/v1/login/protected/medico/paciente/:id/diagnostico
+-recibe: JSON con los datos del diagnostico
+-devuelve en exito:  codigo 201 y  JSON con los datos del diagnostico creado
+-devuelve en fallo: codigo 422 y mensaje de "entidad no creada"
